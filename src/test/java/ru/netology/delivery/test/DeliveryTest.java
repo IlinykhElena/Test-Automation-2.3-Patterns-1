@@ -32,10 +32,10 @@ public class DeliveryTest {
         $("[data-test-id=\"phone\"] .input__control").setValue(validUser.getPhone());
         $("[data-test-id=\"agreement\"] .checkbox__box").click();
         $(byText("Запланировать")).click();
-
         $("[data-test-id=\"success-notification\"] .notification__content").shouldHave(Condition.text("Встреча успешно забронирована на " + date1), Duration.ofSeconds(15));
         $(".notification__content").shouldBe(visible);
 
+        $("[data-test-id=\"success-notification\"] .notification__closer").click();
         $("[data-test-id='date'] input").sendKeys(Keys.chord(Keys.SHIFT, Keys.HOME), Keys.BACK_SPACE);
         $("[placeholder=\"Дата встречи\"]").setValue(date2);
         $("[data-test-id=\"agreement\"] .checkbox__box").click();
